@@ -30,4 +30,4 @@ Reloading
 ## Insallation and setup
 Node.js and Git are required for the installation of Boredem.
 ### Simple installation (recommended)
-
+* Download Boredem's setup file ([Bash/Mac/Linux](
