@@ -1,0 +1,3 @@
+@echo off
+echo Starting Boredem. This could take a while...
+node app.js
