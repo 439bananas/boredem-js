@@ -41,7 +41,7 @@ client.on('error', (error) => {
       title: 'Error',
       description: `${new Date()} - WARN: ${JSON.stringify(error).toString().slice(0, 1996)}`,
     },
-  });
+  }).catch(O_o=>{});
 });
 client.on('guildCreate', async (guild) => {
   const pstatus = `Serving ${client.guilds.size} servers. | ${conf.prefix}help`;
@@ -52,7 +52,7 @@ client.on('guildCreate', async (guild) => {
       color: 0x800080,
       description: `${new Date()} - INFO: I just joined a guild! Guild name: ${guild.name} - Guild ID: ${guild.id}`,
     },
-  });
+  }).catch(O_o=>{});
 });
 client.on('guildDelete', async (guild) => {
   const pstatus = `Serving ${client.guilds.size} servers. | ${conf.prefix}help`;
@@ -63,7 +63,7 @@ client.on('guildDelete', async (guild) => {
       color: 0x800080,
       description: `${new Date()} - INFO: I just left a guild. :( Guild name: ${guild.name} - Guild ID: ${guild.id}`,
     },
-  });
+  }).catch(O_o=>{});
 });
 client.on('message', async (message) => {
   if (!message.content.startsWith(conf.prefix) || message.author.bot) return;
@@ -111,14 +111,14 @@ client.on('message', async (message) => {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
         },
-      });
+      }).catch(O_o=>{});
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Restarting...`);
       client.channels.get('477577668867653633').send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: Restarting...`,
         },
-      });
+      }).catch(O_o=>{});
       client.destroy();
       client.login(conf.token);
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Successfully restarted!`);
@@ -127,7 +127,7 @@ client.on('message', async (message) => {
           color: 0x800080,
           description: `${new Date()} - INFO: Successfully restarted!`,
         },
-      });
+      }).catch(O_o=>{});
     }
     if (command === 'help' || command === 'h' || command === 'commands' || command === 'c') {
       message.channel.send({
