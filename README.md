@@ -2,29 +2,29 @@
 ## Introducion
 Boredem is a Discord bot used for moderation.
 ### Its features include:
-Kicking
-Banning
-Ping
-Help
-Aliases
+Kicking<br/>
+Banning<br/>
+Ping<br/>
+Help<br/>
+Aliases<br/>
 Invite command
 ### Owner only features:
-Evaluate
-Stop
-Reboot
+Evaluate<br/>
+Stop<br/>
+Reboot<br/>
 
 ### Future features:
-Pruning
-Muting/Unmuting/Temporarily muting
-Temporarily banning/Softbanning/Unbanning
-Warning/Unwarning
-Changing nicknames
-Logging
-Assigning roles/Removing roles
-Deleting specific messages/Getting message content/info
+Pruning<br/>
+Muting/Unmuting/Temporarily muting<br/>
+Temporarily banning/Softbanning/Unbanning<br/>
+Warning/Unwarning<br/>
+Changing nicknames<br/>
+Logging<br/>
+Assigning roles/Removing roles<br/>
+Deleting specific messages/Getting message content/info<br/>
 Dashboard
 ### Future owner only features
-Blacklisting guilds
+Blacklisting guilds<br/>
 Reloading
 
 ## Insallation and setup
