@@ -11,3 +11,4 @@ npm install colors
 echo Installation complete! Proceeding to configuration...
 timeout 5
 type nul > conf.json
+conf.json
