@@ -28,3 +28,4 @@ Blacklisting guilds
 Reloading
 
 ## Insallation and setup
+### Simple installation (recommended)
