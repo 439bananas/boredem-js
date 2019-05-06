@@ -74,3 +74,6 @@ typings/
 
 # FuseBox cache
 .fusebox/
+.eslintrc.js
+*.json
+original.js
