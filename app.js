@@ -39,7 +39,7 @@ client.on('error', (error) => {
     embed: {
       color: 0xff0000,
       title: 'Error',
-      description: `${new Date()} - WARN: ${JSON.stringify(error).toString().slice(0, 1996)}`,
+      description: `${new Date()} - WARN: ${JSON.stringify(error).toString().slice(0, 1995)}`,
     },
   }).catch(O_o=>{});
 });
