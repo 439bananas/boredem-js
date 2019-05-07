@@ -1,5 +1,4 @@
-# Boredem
-## Introducion
+# Boredem-js
 Boredem is a Discord bot used for moderation.
 ### Its features include:
 Kicking<br/>
@@ -22,7 +21,10 @@ Changing nicknames<br/>
 Logging<br/>
 Assigning roles/Removing roles<br/>
 Deleting specific messages/Getting message content/info<br/>
-Dashboard
+Dashboard<br/>
+GUI<br/>
+Rewrite
+
 ### Future owner only features
 Blacklisting guilds<br/>
 Reloading
