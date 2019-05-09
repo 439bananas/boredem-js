@@ -7,7 +7,7 @@ const client = new Discord.Client();
 const conf = require('./conf.json');
 
 /* client.on('debug', (m) => {
-  if (m.toString().split(' ').includes('token')) return; client.channels.get('477577668867653633').send({
+  if (m.toString().split(' ').includes('token')) return; client.channels.get(conf.logchannelID).send({
     embed: {
       color: 0x800080,
       description: `${new Date()} - INFO: ${m}`,
@@ -17,7 +17,7 @@ const conf = require('./conf.json');
 
 client.on('ready', () => {
   console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Successfully connected to Discord's API!\n\Boredem will now list who ran what command in which server and channel at what time.\n\Online status: ${conf.ostatus}\n\Prefix: ${conf.prefix}`);
-  client.channels.get('477577668867653633').send({
+  client.channels.get(conf.logchannelID).send({
     embed: {
       color: 0x800080,
       description: `${new Date()} - INFO: Boredem has started.`,
@@ -35,7 +35,7 @@ client.on('ready', () => {
 });
 client.on('error', (error) => {
   console.trace(`${colours.cyan(`${new Date()}`)}  - ${'WARN:'.yellow}  ${error}`);
-  client.channels.get('477577668867653633').send({
+  client.channels.get(conf.logchannelID).send({
     embed: {
       color: 0xff0000,
       title: 'Error',
@@ -47,7 +47,7 @@ client.on('guildCreate', async (guild) => {
   const pstatus = `Serving ${client.guilds.size} servers. | ${conf.prefix}help`;
   client.user.setPresence({ status: conf.ostatus, game: { name: pstatus } });
   console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} I just joined a guild! Guild name: ${guild.name} - Guild ID: ${guild.id}`);
-  client.channels.get('477577668867653633').send({
+  client.channels.get(conf.logchannelID).send({
     embed: {
       color: 0x800080,
       description: `${new Date()} - INFO: I just joined a guild! Guild name: ${guild.name} - Guild ID: ${guild.id}`,
@@ -58,7 +58,7 @@ client.on('guildDelete', async (guild) => {
   const pstatus = `Serving ${client.guilds.size} servers. | ${conf.prefix}help`;
   client.user.setPresence({ status: conf.ostatus, game: { name: pstatus } });
   console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} I just left a guild. :( Guild name: ${guild.name} - Guild ID: ${guild.id}`);
-  client.channels.get('477577668867653633').send({
+  client.channels.get(conf.logchannelID).send({
     embed: {
       color: 0x800080,
       description: `${new Date()} - INFO: I just left a guild. :( Guild name: ${guild.name} - Guild ID: ${guild.id}`,
@@ -81,14 +81,14 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Boredem was stopped.`);
-      await client.channels.get('477577668867653633').send({
+      await client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - ${'INFO:'.green} Boredem was stopped.`,
@@ -106,14 +106,14 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
         },
       }).catch(O_o=>{});
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Restarting...`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: Restarting...`,
@@ -122,7 +122,7 @@ client.on('message', async (message) => {
       client.destroy();
       client.login(conf.token);
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Successfully restarted!`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: Successfully restarted!`,
@@ -138,7 +138,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -156,7 +156,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -172,7 +172,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -188,7 +188,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -206,7 +206,7 @@ client.on('message', async (message) => {
       },
     });
     console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-    client.channels.get('477577668867653633').send({
+    client.channels.get(conf.logchannelID).send({
       embed: {
         color: 0x800080,
         description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -218,7 +218,7 @@ client.on('message', async (message) => {
     if (message.author.id === conf.ownerID) {
       if (!code) {
         console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-        client.channels.get('477577668867653633').send({
+        client.channels.get(conf.logchannelID).send({
           embed: {
             color: 0x800080,
             description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -256,7 +256,7 @@ client.on('message', async (message) => {
         message.react('409712144125263873');
       }
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -264,7 +264,7 @@ client.on('message', async (message) => {
       });
     } else if (message.author.id !== conf.ownerID) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -283,7 +283,7 @@ client.on('message', async (message) => {
 
   if (command === 'ping' || command === 'pong') {
     console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-    client.channels.get('477577668867653633').send({
+    client.channels.get(conf.logchannelID).send({
       embed: {
         color: 0x800080,
         description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -314,7 +314,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -322,7 +322,7 @@ client.on('message', async (message) => {
       });
     } if (!message.member.hasPermission('KICK_MEMBERS') && message.author.id !== conf.ownerID) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -341,7 +341,7 @@ client.on('message', async (message) => {
     }
     if (!kickmember) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -358,7 +358,7 @@ client.on('message', async (message) => {
 
     if (!kickreason) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -368,7 +368,7 @@ client.on('message', async (message) => {
         await kickmember.send(`👢 You were kicked by **${message.author.tag}** (\`${message.author.id}\`) in **${message.guild.name}** (\`${message.guild.id}\`).`);
         await kickmember.kick(`The kick was requested by ${message.author.tag} (${message.author.id}) with no reason.`);
         await console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-        client.channels.get('477577668867653633').send({
+        client.channels.get(conf.logchannelID).send({
           embed: {
             color: 0x800080,
             description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -382,7 +382,7 @@ client.on('message', async (message) => {
           },
         });
         console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-        client.channels.get('477577668867653633').send({
+        client.channels.get(conf.logchannelID).send({
           embed: {
             color: 0x800080,
             description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -399,7 +399,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -409,7 +409,7 @@ client.on('message', async (message) => {
       await kickmember.send(`👢 You were kicked by **${message.author.tag}** (\`${message.author.id}\`) in **${message.guild.name}** (\`${message.guild.id}\`) with the reason \`${kickreason}\`.`);
       await kickmember.kick(`The kick was requested by ${message.author.tag} (${message.author.id}) with the reason ${kickreason}.`);
       await console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -423,7 +423,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -444,7 +444,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -452,7 +452,7 @@ client.on('message', async (message) => {
       });
     } if (!message.member.hasPermission('BAN_MEMBERS') && message.author.id !== conf.ownerID) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -471,7 +471,7 @@ client.on('message', async (message) => {
     }
     if (!banmember) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -488,7 +488,7 @@ client.on('message', async (message) => {
 
     if (!banreason) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -498,7 +498,7 @@ client.on('message', async (message) => {
         await banmember.send(`🚨 You were banned by **${message.author.tag}** (\`${message.author.id}\`) in **${message.guild.name}** (\`${message.guild.id}\`).`);
         await banmember.ban(`The ban was requested by ${message.author.tag} (${message.author.id}) with no reason.`);
         await console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-        client.channels.get('477577668867653633').send({
+        client.channels.get(conf.logchannelID).send({
           embed: {
             color: 0x800080,
             description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -512,7 +512,7 @@ client.on('message', async (message) => {
           },
         });
         console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-        client.channels.get('477577668867653633').send({
+        client.channels.get(conf.logchannelID).send({
           embed: {
             color: 0x800080,
             description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -529,7 +529,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -539,7 +539,7 @@ client.on('message', async (message) => {
       await banmember.send(`🚨 You were banned by **${message.author.tag}** (\`${message.author.id}\`) in **${message.guild.name}** (\`${message.guild.id}\`) with the reason \`${banreason}\`.`);
       await banmember.ban(`The ban was requested by ${message.author.tag} (${message.author.id}) with the reason ${banreason}.`);
       await console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
@@ -553,7 +553,7 @@ client.on('message', async (message) => {
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
-      client.channels.get('477577668867653633').send({
+      client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,

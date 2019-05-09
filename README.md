@@ -49,7 +49,8 @@ Node.js and Git are required for the installation of Boredem.
 "token":"-insert your Discord token here-",
 "ostatus":"online/idle/dnd",
 "prefix":"-insert your intended prefix here-",
-"ownerID":"-insert your own user ID here-
+"ownerID":"-insert your own user ID here-",
+"logchannelID":"-insert the id of the channel you want to log to-"
 }
 ```
 * In Bash, hit CTRL + X then press enter. In Windows, save like you normally would (usually CTRL + S) in your preferred editor
