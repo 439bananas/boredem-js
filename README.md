@@ -40,7 +40,15 @@ Node.js and Git are required for the installation of Boredem.
 * Click the option in the left pane labelled `Bot`
 * Click the button with the name `Add Bot`
 * Confirm you wish to create a bot user
-* Under the token subsection, click copy. You will need this token later.
+* Under the token subsection, click copy. Paste it somewhere safe. You will need this token later
+* You will also need to add your bot to a server.
+** Click OAuth2
+** Select the bot scope
+** Select the permissions you want to use
+** Click the blurple copy button
+** Paste it into your omnibox
+** Select a server
+** Click authorise
 * Download Boredem's setup file ([Bash/Mac/Linux](https://boredem.uk.to/downloads/open-source/boredem-js/setup.sh) | [Windows](https://boredem.uk.to/downloads/open-source/boredem-js/setup.bat))
 * Run the file you downloaded for your respective operating system/command line
 * When you see a text editor prompting you to create `conf.json`, enter the following:
