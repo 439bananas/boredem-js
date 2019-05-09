@@ -32,6 +32,15 @@ Reloading
 ## Insallation and setup
 Node.js and Git are required for the installation of Boredem.
 ### Simple installation (recommended)
+* Head on over to [https://discordapp.com/developers/applications](your applications page) and click the blurple button labelled `New Application`
+* Enter a name
+* If you have a team to test your instance, select your team
+* Click create
+* Customise your application the way you want it
+* Click the option in the left pane labelled `Bot`
+* Click the button with the name `Add Bot`
+* Confirm you wish to create a bot user
+* Under the token subsection, click copy. You will need this token later.
 * Download Boredem's setup file ([Bash/Mac/Linux](https://boredem.uk.to/downloads/open-source/boredem-js/setup.sh) | [Windows](https://boredem.uk.to/downloads/open-source/boredem-js/setup.bat))
 * Run the file you downloaded for your respective operating system/command line
 * When you see a text editor prompting you to create `conf.json`, enter the following:
