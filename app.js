@@ -84,14 +84,14 @@ client.on('message', async (message) => {
       client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
-          description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
+          description: `${new Date()} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
         },
       });
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Boredem was stopped.`);
       await client.channels.get(conf.logchannelID).send({
         embed: {
           color: 0x800080,
-          description: `${new Date()} - ${'INFO:'.green} Boredem was stopped.`,
+          description: `${new Date()} - INFO: Boredem was stopped.`,
         },
       });
       await client.destroy();
