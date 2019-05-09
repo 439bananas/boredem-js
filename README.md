@@ -35,10 +35,11 @@ Node.js and Git are required for the installation of Boredem.
 * Run the file you downloaded for your respective operating system
 * When you see a text editor prompting you to create `conf.json`, enter the following:
 ```
-json
+javascript
 {
 "token":"-insert your Discord token here-"
 "ostatus":"online/idle/dnd"
 "prefix":"-insert your intended prefix here-"
-"ownerID":"-insert your own user ID here-}
+"ownerID":"-insert your own user ID here-
+}
 ```
