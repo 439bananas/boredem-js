@@ -1,3 +1,4 @@
+# Boredem
 Boredem is a Discord bot used for moderation.
 ### Its features include:
 Kicking<br/>
