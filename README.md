@@ -32,7 +32,7 @@ Reloading
 Node.js and Git are required for the installation of Boredem.
 ### Simple installation (recommended)
 * Download Boredem's setup file ([Bash/Mac/Linux](https://boredem.uk.to/downloads/open-source/boredem-js/setup.sh) | [Windows](https://boredem.uk.to/downloads/open-source/boredem-js/setup.bat))
-* Run the file you downloaded for your respective operating system
+* Run the file you downloaded for your respective operating system/command line
 * When you see a text editor prompting you to create `conf.json`, enter the following:
 ```json
 {
@@ -42,3 +42,4 @@ Node.js and Git are required for the installation of Boredem.
 "ownerID":"-insert your own user ID here-
 }
 ```
+* Run the respective run.* file for your operating system/command line
