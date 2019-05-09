@@ -32,7 +32,7 @@ Reloading
 ## Insallation and setup
 Node.js and Git are required for the installation of Boredem.
 ### Simple installation (recommended)
-* Head on over to [https://discordapp.com/developers/applications](your applications page) and click the blurple button labelled `New Application`
+* Head on over to [your applications page](https://discordapp.com/developers/applications) and click the blurple button labelled `New Application`
 * Enter a name
 * If you have a team to test your instance, select your team
 * Click create
