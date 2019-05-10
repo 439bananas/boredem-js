@@ -64,3 +64,4 @@ Node.js and Git are required for the installation of Boredem.
 * In Bash, hit CTRL + X, Y then press enter. In Windows, save like you normally would (usually CTRL + S) in your preferred editor
 * Find your user directory and open the directory labelled `boredem-js`
 * Run the respective run.* file for your operating system/command line
+![](https://boredem.uk.to/resources/simpleinstallation.gif)
