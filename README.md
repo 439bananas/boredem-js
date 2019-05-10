@@ -65,5 +65,5 @@ Node.js and Git are required for the installation of Boredem.
 * Find your user directory and open the directory labelled `boredem-js`
 * Run the respective run.* file for your operating system/command line<br/>
 
-* Yes @jacob-g, I totally used your profile picture just for this...
+* Yes [@jacob-g](https://github.com/jacob-g), I totally used your profile picture just for this...
 ![alt text](https://github.com/boredemdiscord/boredem-js/blob/master/resources/simpleinstallation.gif)
