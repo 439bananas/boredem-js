@@ -23,7 +23,9 @@ Assigning roles/Removing roles<br/>
 Deleting specific messages/Getting message content/info<br/>
 Dashboard<br/>
 GUI<br/>
-Rewrite
+Rewrite  
+Report  
+Modmail  
 
 ### Future owner only features
 Blacklisting guilds<br/>
