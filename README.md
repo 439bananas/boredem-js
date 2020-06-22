@@ -26,6 +26,7 @@ GUI<br/>
 Rewrite  
 Report  
 Modmail  
+Banme
 
 ### Future owner only features
 Blacklisting guilds<br/>
