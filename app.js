@@ -1,5 +1,4 @@
 const colours = require('colors');
-
 console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} Attempting to connect to Discord\'s API...`);
 const Discord = require('discord.js');
 
@@ -34,12 +33,12 @@ client.on('ready', () => {
   client.user.setPresence({ status: conf.ostatus, game: { name: pstatus } });
 });
 client.on('error', (error) => {
-  console.trace(`${colours.cyan(`${new Date()}`)}  - ${'WARN:'.yellow}  ${error}`);
+  console.trace(`${colours.cyan(`${new Date()}`)} - ${'WARN:'.yellow} ${error}`);
   client.channels.get(conf.logchannelID).send({
     embed: {
       color: 0xff0000,
       title: 'Error',
-      description: `${new Date()} - WARN: ${JSON.stringify(error).toString().slice(0, 1995)}`,
+      description: `${new Date()} - WARN: ${JSON.stringify(error).toString().slice(0, 1994)}`,
     },
   }).catch(O_o=>{});
 });
@@ -214,6 +213,7 @@ client.on('message', async (message) => {
     });
   }
   if (command === 'eval' || command === 'evaluate' || command === 'e') {
+    var output = "true"
     const code = args.join(' ');
     if (message.author.id === conf.ownerID) {
       if (!code) {
@@ -239,21 +239,27 @@ client.on('message', async (message) => {
         if (typeof evaled !== 'string') { evaled = require('util').inspect(evaled); }
 
 
-        if (evaled.length > 1990) {
-          return message.channel.sendFile(Buffer.from(evaled.toString()), 'output.txt').catch((O_o) => {});
-        }
+        if (output == "true") { 
+          if (evaled.length > 1990) {
+            return message.channel.sendFile(Buffer.from(evaled.toString()), 'output.txt').catch((O_o) => {});
+          }
         message.channel.send((evaled), { code: 'xl' });
 
         message.react('409711288504287233');
+        }
       } catch (err) {
-        message.channel.send({
-          embed: {
-            color: 0xff0000,
-            title: 'Error',
-            description: `\`\`\`xl\n${(err)}\n\`\`\``,
-          },
-        });
+        if (output == "true") {
+          message.channel.send({
+            embed: {
+              color: 0xff0000,
+              title: 'Error',
+              description: `\`\`\`xl\n${(err)}\n\`\`\``,
+            },
+          });
+        }
         message.react('409712144125263873');
+      }
+
       }
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
       client.channels.get(conf.logchannelID).send({
@@ -262,7 +268,7 @@ client.on('message', async (message) => {
           description: `${new Date()} - INFO: ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`,
         },
       });
-    } else if (message.author.id !== conf.ownerID) {
+    if (message.author.id !== conf.ownerID) {
       console.log(`${colours.cyan(`${new Date()}`)} - ${'INFO:'.green} ${message.author.tag} (${message.author.id}) ran ${message.content} in ${message.guild.name} (${message.guild.id}), #${message.channel.name} (${message.channel.id}).`);
       client.channels.get(conf.logchannelID).send({
         embed: {
